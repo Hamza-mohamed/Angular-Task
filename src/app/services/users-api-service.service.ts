@@ -18,9 +18,24 @@ export class UsersApiServiceService {
   constructor(
     private http: HttpClient,
   ) { }
-  /** GET users from the server */
+  /** GET users from the server based on pagenumber */
   getUsers(pageNum:number): Observable<Users[]> {
      return this.http.get<Users[]>(this.ApiUrl+`?page=${pageNum}`)
+      .pipe(
+        tap((data:any) => {
+          // console.log('users fetched successfully',data);
+          return data
+        }),
+        catchError((error) => {
+          // console.error('Error fetching users:', error);
+          return throwError('Something went wrong while fetching users. Please try again later.'); 
+        })
+      );
+      
+  }
+  /** GET users from the server based on pagenumber */
+  getAllUsers(): Observable<Users[]> {
+     return this.http.get<Users[]>(this.ApiUrl)
       .pipe(
         tap((data:any) => {
           // console.log('users fetched successfully',data);

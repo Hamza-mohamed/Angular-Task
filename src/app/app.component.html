@@ -1,5 +1,6 @@
 
-<app-header (searchQuery)="searchUsers($event)"></app-header>
-<app-search [searchQuery]="searchQuery"></app-search>
+<div class="container-fluid bg-secondary">
+    <app-header></app-header>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+</div>

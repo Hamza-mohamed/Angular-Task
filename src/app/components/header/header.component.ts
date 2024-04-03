@@ -4,11 +4,12 @@ import { Router, RouterModule } from '@angular/router';
 import { Users } from '../../models/users';
 import { UsersApiServiceService } from '../../services/users-api-service.service';
 import { Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule,ReactiveFormsModule],
+  imports: [RouterModule,ReactiveFormsModule,SearchComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

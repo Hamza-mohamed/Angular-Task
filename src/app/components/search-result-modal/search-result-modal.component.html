@@ -1,0 +1,38 @@
+<div *ngIf="loading" class="spinner">
+    <p>.......loading</p>
+  </div>
+<div class="modal-header">
+  <h5 class="modal-title">Search Result</h5>
+  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row m-0 p-0">
+    <div
+      class="col-md-3 justify-content-center align-items-center my-2"
+      *ngFor="let user of data.searchResult"
+    >
+      <div class="card" appUserCard="grey">
+        <div
+          [routerLink]="['/user', user.id]"
+          routerLinkActive="router-link-active"
+        >
+          <img src="{{ user.avatar }}" class="card-img-top" alt="User Avatar" />
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ user.first_name + " " + user.last_name }}
+            </h5>
+            <p class="card-text">Email: {{ user.email }}</p>
+            <p class="card-text">ID: {{ user.id }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="closeModal()">
+    Close
+  </button>
+</div>
