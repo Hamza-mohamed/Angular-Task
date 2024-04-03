@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.custom-dialog-container {
+    z-index: 1000 !important; /* Adjust the value as needed */
+}
+.mat-dialog-container {
+    position: fixed;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    width: 75%;
+    background-color: white;
+    z-index:100000;
+}
+  

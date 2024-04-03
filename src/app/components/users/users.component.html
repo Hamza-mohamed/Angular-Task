@@ -8,13 +8,16 @@
         [routerLink]="['/user', user.id]"
         routerLinkActive="router-link-active"
       >
-        <img src="{{ user.avatar }}" class="card-img-top" alt="User Avatar" />
+      <div class="d-flex justify-content-center align-items-center py-2">
+        <img class="avatar img-fluid rounded-circle h-100 " [src]="user?.avatar" alt="User Avatar">
+
+      </div>
         <div class="card-body">
           <h5 class="card-title">
             {{ user.first_name + " " + user.last_name }}
           </h5>
           <p class="card-text">Email: {{ user.email }}</p>
-          <p class="card-text">ID: {{ user.id }}</p>
+          <!-- <p class="card-text">ID: {{ user.id }}</p> -->
         </div>
       </div>
     </div>

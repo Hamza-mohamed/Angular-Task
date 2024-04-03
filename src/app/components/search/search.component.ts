@@ -64,10 +64,12 @@ export class SearchComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = { searchResult };
     dialogConfig.position = {
-      top: '0.5%',
+      top:  '5px', // Position below the header
       left: '5%',
-      right:'25%'
+      right: '25%'  // Set 25% from the right
     };
+    dialogConfig.panelClass = 'custom-dialog-container';
+ 
     return this.dialog.open(SearchResultModalComponent, dialogConfig);
   }
 
