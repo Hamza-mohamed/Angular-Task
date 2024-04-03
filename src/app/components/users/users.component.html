@@ -1,0 +1,26 @@
+<div class="row m-0 p-0">
+  <div
+    class="col-md-3 justify-content-center align-items-center my-2"
+    *ngFor="let user of Users"
+  >
+    <div class="card" appUserCard="grey">
+      <div
+        [routerLink]="['/user', user.id]"
+        routerLinkActive="router-link-active"
+      >
+        <img src="{{ user.avatar }}" class="card-img-top" alt="User Avatar" />
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ user.first_name + " " + user.last_name }}
+          </h5>
+          <p class="card-text">Email: {{ user.email }}</p>
+          <p class="card-text">ID: {{ user.id }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex align-items-center p-2 justify-content-center">
+    <button (click)="PrevPage()" class="btn btn-primary" [disabled]="pageNumber == 1">prev</button>
+    <button (click)="NextPage()" class="btn btn-primary" [disabled]="pageNumber == 2">Next</button>
+  </div>
+</div>

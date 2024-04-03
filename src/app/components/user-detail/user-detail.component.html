@@ -1,0 +1,20 @@
+<div class="user-profile row align-items-center">
+    <div class="col-auto">
+      <img class="avatar img-fluid rounded-circle" [src]="user?.avatar" alt="User Avatar">
+    </div>
+    <div class="col">
+      <div><strong>Name:</strong> {{ user?.first_name }} {{ user?.last_name }}</div>
+      <div><strong>Email:</strong> {{ user?.email }}</div>
+    </div>
+  </div>
+  <div>
+    <input
+        name=""
+        id=""
+        (click)="goBack()"
+        class="btn btn-primary"
+        type="button"
+        value="Back"
+    />
+    
+  </div>
