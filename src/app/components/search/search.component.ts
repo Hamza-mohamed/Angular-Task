@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 export class SearchComponent implements OnInit {
   // @Input() searchQuery!: string;
   users: Users[] = [];
-  username: string = '';
+  userID!: number;
   searchResult: any;
   loading: boolean = false; 
   modalRef: MatDialogRef<SearchResultModalComponent> | null = null;
@@ -40,10 +40,9 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    if (this.username) {
+    if (this.userID) {
       const filteredData = this.users.filter(item => {
-        // Assuming 'first_name' is the property you want to search against
-        return item.first_name.toLowerCase().includes(this.username.toLowerCase());
+        return item.id==Number(this.userID);
       });
 
       if (filteredData.length > 0) {
@@ -53,7 +52,7 @@ export class SearchComponent implements OnInit {
           this.updateModalContent(filteredData);
         }
       } else {
-        this.closeModal();
+        this.modalRef = this.openModal(filteredData);
       }
     } else {
       this.closeModal();
